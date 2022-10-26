@@ -1,0 +1,4 @@
+mpisubmit.pl -w 00:01 -p 1 --stdout 1.out --stderr 1e.out a.out -- $1
+mpisubmit.pl -w 00:01 -p 4 --stdout 4.out --stderr 4e.out a.out -- $1
+mpisubmit.pl -w 00:01 -p 16 --stdout 16.out --stderr 16e.out a.out -- $1
+mpisubmit.pl -w 00:01 -p 60 --stdout 60.out --stderr 60e.out a.out -- $1
