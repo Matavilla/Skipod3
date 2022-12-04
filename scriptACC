@@ -1,0 +1,34 @@
+module load openmpi
+module load pgi
+
+mpicc -acc -ta=tesla -O3 -fast -Minfo=all task3_acc2.c
+
+bsub -n 1 -R "span[ptile=1]" -gpu "num=1" -o 1_1_128.out -eo tmp.err -W 00:05 mpiexec -np 1 ./a.out 1 128
+bsub -n 2 -R "span[ptile=2]" -gpu "num=2" -o 2_1_128.out -eo tmp.err -W 00:05 mpiexec -np 2 ./a.out 1 128
+bsub -n 4 -R "span[ptile=2]" -gpu "num=2" -o 4_1_128.out -eo tmp.err -W 00:05 mpiexec -np 4 ./a.out 1 128
+bsub -n 6 -R "span[ptile=2]" -gpu "num=2" -o 6_1_128.out -eo tmp.err -W 00:05 mpiexec -np 6 ./a.out 1 128
+
+bsub -n 1 -R "span[ptile=1]" -gpu "num=1" -o 1_3_128.out -eo tmp.err -W 00:05 mpiexec -np 1 ./a.out 3.14 128
+bsub -n 2 -R "span[ptile=2]" -gpu "num=2" -o 2_3_128.out -eo tmp.err -W 00:05 mpiexec -np 2 ./a.out 3.14 128
+bsub -n 4 -R "span[ptile=2]" -gpu "num=2" -o 4_3_128.out -eo tmp.err -W 00:05 mpiexec -np 4 ./a.out 3.14 128
+bsub -n 6 -R "span[ptile=2]" -gpu "num=2" -o 6_3_128.out -eo tmp.err -W 00:05 mpiexec -np 6 ./a.out 3.14 128
+
+bsub -n 1 -R "span[ptile=1]" -gpu "num=1" -o 1_1_256.out -eo tmp.err -W 00:05 mpiexec -np 1 ./a.out 1 256
+bsub -n 2 -R "span[ptile=2]" -gpu "num=2" -o 2_1_256.out -eo tmp.err -W 00:05 mpiexec -np 2 ./a.out 1 256
+bsub -n 4 -R "span[ptile=2]" -gpu "num=2" -o 4_1_256.out -eo tmp.err -W 00:05 mpiexec -np 4 ./a.out 1 256
+bsub -n 6 -R "span[ptile=2]" -gpu "num=2" -o 6_1_256.out -eo tmp.err -W 00:05 mpiexec -np 6 ./a.out 1 256
+
+bsub -n 1 -R "span[ptile=1]" -gpu "num=1" -o 1_3_256.out -eo tmp.err -W 00:05 mpiexec -np 1 ./a.out 3.14 256
+bsub -n 2 -R "span[ptile=2]" -gpu "num=2" -o 2_3_256.out -eo tmp.err -W 00:05 mpiexec -np 2 ./a.out 3.14 256
+bsub -n 4 -R "span[ptile=2]" -gpu "num=2" -o 4_3_256.out -eo tmp.err -W 00:05 mpiexec -np 4 ./a.out 3.14 256
+bsub -n 6 -R "span[ptile=2]" -gpu "num=2" -o 6_3_256.out -eo tmp.err -W 00:05 mpiexec -np 6 ./a.out 3.14 256
+
+bsub -n 1 -R "span[ptile=1]" -gpu "num=1" -o 1_1_512.out -eo tmp.err -W 00:05 mpiexec -np 1 ./a.out 1 512
+bsub -n 2 -R "span[ptile=2]" -gpu "num=2" -o 2_1_512.out -eo tmp.err -W 00:05 mpiexec -np 2 ./a.out 1 512
+bsub -n 4 -R "span[ptile=2]" -gpu "num=2" -o 4_1_512.out -eo tmp.err -W 00:05 mpiexec -np 4 ./a.out 1 512
+bsub -n 6 -R "span[ptile=2]" -gpu "num=2" -o 6_1_512.out -eo tmp.err -W 00:05 mpiexec -np 6 ./a.out 1 512
+
+bsub -n 1 -R "span[ptile=1]" -gpu "num=1" -o 1_3_512.out -eo tmp.err -W 00:05 mpiexec -np 1 ./a.out 3.14 512
+bsub -n 2 -R "span[ptile=2]" -gpu "num=2" -o 2_3_512.out -eo tmp.err -W 00:05 mpiexec -np 2 ./a.out 3.14 512
+bsub -n 4 -R "span[ptile=2]" -gpu "num=2" -o 4_3_512.out -eo tmp.err -W 00:05 mpiexec -np 5 ./a.out 3.14 512
+bsub -n 6 -R "span[ptile=2]" -gpu "num=2" -o 6_3_512.out -eo tmp.err -W 00:05 mpiexec -np 6 ./a.out 3.14 512

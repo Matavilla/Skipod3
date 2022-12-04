@@ -1,0 +1,4 @@
+#BSUB -n 32
+#BSUB -o "tmp.out"
+OMP_NUM_THREADS=4 mpiexec -np 32 ./a.out 3.14 128
+

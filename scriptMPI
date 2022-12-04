@@ -1,0 +1,42 @@
+
+module load openmpi
+module load pgi
+#module load SpectrumMPI
+#mpicc -O3 -fast -Minfo=all task3_MPI.c
+
+mpicc -O3 -fast -Minfo=all task3_MPI.c
+mpisubmit-new.pl -w 00:05 -p 1 -t 1 --stdout 1_1_128.out --stderr 10_1_128e.out a.out -- 1 128
+mpisubmit-new.pl -w 00:05 -p 4 -t 1 --stdout 4_1_128.out --stderr 20_1_128e.out a.out -- 1 128
+mpisubmit-new.pl -w 00:05 -p 8 -t 1 --stdout 8_1_128.out --stderr 40_1_128e.out a.out -- 1 128
+mpisubmit-new.pl -w 00:05 -p 16 -t 1 --stdout 16_1_128.out --stderr 40_1_128e.out a.out -- 1 128
+mpisubmit-new.pl -w 00:05 -p 32 -t 1 --stdout 32_1_128.out --stderr 40_1_128e.out a.out -- 1 128
+
+mpisubmit-new.pl -w 00:05 -p 1 -t 1 --stdout 1_3_128.out --stderr 10_3_128e.out a.out -- 3.14 128
+mpisubmit-new.pl -w 00:05 -p 4 -t 1 --stdout 4_3_128.out --stderr 20_1_128e.out a.out -- 3.14 128
+mpisubmit-new.pl -w 00:05 -p 8 -t 1 --stdout 8_3_128.out --stderr 40_1_128e.out a.out -- 3.14 128
+mpisubmit-new.pl -w 00:05 -p 16 -t 1 --stdout 16_3_128.out --stderr 40_1_128e.out a.out -- 3.14 128
+mpisubmit-new.pl -w 00:05 -p 32 -t 1 --stdout 32_3_128.out --stderr 40_1_128e.out a.out -- 3.14 128
+
+mpisubmit-new.pl -w 00:05 -p 1 -t 1 --stdout 1_1_256.out --stderr 10_1_256e.out a.out -- 1 256
+mpisubmit-new.pl -w 00:05 -p 4 -t 1 --stdout 4_1_256.out --stderr 20_1_256e.out a.out -- 1 256
+mpisubmit-new.pl -w 00:05 -p 8 -t 1 --stdout 8_1_256.out --stderr 40_1_256e.out a.out -- 1 256
+mpisubmit-new.pl -w 00:05 -p 16 -t 1 --stdout 16_1_256.out --stderr 40_1_256e.out a.out -- 1 256
+mpisubmit-new.pl -w 00:05 -p 32 -t 1 --stdout 32_1_256.out --stderr 40_1_256e.out a.out -- 1 256
+
+mpisubmit-new.pl -w 00:05 -p 1 -t 1 --stdout 1_3_256.out --stderr 10_1_256e.out a.out -- 3.14 256
+mpisubmit-new.pl -w 00:05 -p 4 -t 1 --stdout 4_3_256.out --stderr 20_1_256e.out a.out -- 3.14 256
+mpisubmit-new.pl -w 00:05 -p 8 -t 1 --stdout 8_3_256.out --stderr 40_1_256e.out a.out -- 3.14 256
+mpisubmit-new.pl -w 00:05 -p 16 -t 1 --stdout 16_3_256.out --stderr 40_1_256e.out a.out -- 3.14 256
+mpisubmit-new.pl -w 00:05 -p 32 -t 1 --stdout 32_3_256.out --stderr 40_1_256e.out a.out -- 3.14 256
+
+mpisubmit-new.pl -w 00:05 -p 1 -t 1 --stdout 1_1_512.out --stderr 10_1_512e.out a.out -- 1 512
+mpisubmit-new.pl -w 00:05 -p 4 -t 1 --stdout 4_1_512.out --stderr 20_1_512e.out a.out -- 1 512
+mpisubmit-new.pl -w 00:05 -p 8 -t 1 --stdout 8_1_512.out --stderr 40_1_512e.out a.out -- 1 512
+mpisubmit-new.pl -w 00:05 -p 16 -t 1 --stdout 16_1_512.out --stderr 40_1_512e.out a.out -- 1 512
+mpisubmit-new.pl -w 00:05 -p 32 -t 1 --stdout 32_1_512.out --stderr 40_1_512e.out a.out -- 1 512
+
+mpisubmit-new.pl -w 00:05 -p 1 -t 1 --stdout 1_3_512.out --stderr 10_1_512e.out a.out -- 3.14 512
+mpisubmit-new.pl -w 00:05 -p 4 -t 1 --stdout 4_3_512.out --stderr 20_1_512e.out a.out -- 3.14 512
+mpisubmit-new.pl -w 00:05 -p 8 -t 1 --stdout 8_3_512.out --stderr 40_1_512e.out a.out -- 3.14 512
+mpisubmit-new.pl -w 00:05 -p 16 -t 1 --stdout 16_3_512.out --stderr 40_1_512e.out a.out -- 3.14 512
+mpisubmit-new.pl -w 00:05 -p 32 -t 1 --stdout 32_3_512.out --stderr 40_1_512e.out a.out -- 3.14 512
